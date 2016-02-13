@@ -83,3 +83,15 @@ The results were as follows:
     Ins_Age      9011.543
     (no other factors were listed)
 
+     Importance of Group 3, Employment_Info:
+                      IncNodePurity
+    Employment_Info_1      10498.11
+
+
+    (no other factors were listed)
+
+
+
+
+There are misssing values in Group 3, Employment Info.  randomForest cannot handle missing values in the
+predictor attribues.  We elected to omit these values.

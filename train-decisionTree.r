@@ -15,6 +15,10 @@ applicants$Product_Info_5 <- as.factor(applicants$Product_Info_5)
 applicants$Product_Info_6 <- as.factor(applicants$Product_Info_6)
 applicants$Product_Info_7 <- as.factor(applicants$Product_Info_7)
 
+applicants$Employment_Info_2 <- as.factor(applicants$Employment_Info_2)
+applicants$Employment_Info_3 <- as.factor(applicants$Employment_Info_3)
+applicants$Employment_Info_5 <- as.factor(applicants$Employment_Info_5)
+
 set.seed(2718)
 trainSize <- totRows / 2
 trainInd  <- sample(seq_len(totRows), size = trainSize)
@@ -24,8 +28,8 @@ cat("\nTraining set extracted, mean ID of training set: ", mean(train$Id), "\n")
 cat("                        mean ID of test set    : ",   mean(test$Id),  "\n")
 
 
-fol1 <- formula(Response ~ Product_Info_1 + Product_Info_2 + Product_Info_3 + Product_Info_4
-                          + Product_Info_5 + Product_Info_6 + Product_Info_7)
+#fol1 <- formula(Response ~ Product_Info_1 + Product_Info_2 + Product_Info_3 + Product_Info_4
+#                          + Product_Info_5 + Product_Info_6 + Product_Info_7)
 #fit1 <- ctree(fol1, train)
 #cat("ctree based on product info:\n")
 #fit1
@@ -34,11 +38,11 @@ fol1 <- formula(Response ~ Product_Info_1 + Product_Info_2 + Product_Info_3 + Pr
 #cat("\nDecision tree for product type:\n")
 #model1
 
-prod_rf = randomForest(fol1, train)
-cat("\nimportance of Product_Info fields:\n")
-importance(prod_rf)
+#prod_rf = randomForest(fol1, train)
+#cat("\nimportance of Product_Info fields:\n")
+#importance(prod_rf)
 
-fol2   <- formula(Response ~ Ins_Age, Ht, Wt, BMI)
+#fol2   <- formula(Response ~ Ins_Age, Ht, Wt, BMI)
 
 #cat("ctree based on age/weight:\n")
 #fit2 <- ctree(fol2, train)
@@ -48,6 +52,12 @@ fol2   <- formula(Response ~ Ins_Age, Ht, Wt, BMI)
 #cat("\nDecision tree for age, weight:\n")
 #model2
 
-cat("importance, age/wt:\n")
-age_rf <- randomForest(fol2, train)
-importance(age_rf)
+#cat("importance, age/wt:\n")
+#age_rf <- randomForest(fol2, train)
+#importance(age_rf)
+
+fol3 <- formula(Response ~ Employment_Info_1, Employment_Info_2, Employment_Info_3, Employment_Info_4,
+                           Employment_Info_5, Employment_Info_6, Employment_Info_7)
+emp_rf <- randomForest(fol3, train, na.action = na.omit)
+cat("\nImportance of Employment_Info:\n")
+importance(emp_rf)
