@@ -19,6 +19,13 @@ applicants$Employment_Info_2 <- as.factor(applicants$Employment_Info_2)
 applicants$Employment_Info_3 <- as.factor(applicants$Employment_Info_3)
 applicants$Employment_Info_5 <- as.factor(applicants$Employment_Info_5)
 
+applicants$InsuredInfo_1 <- as.factor(applicants$InsuredInfo_1)
+applicants$InsuredInfo_2 <- as.factor(applicants$InsuredInfo_2)
+applicants$InsuredInfo_3 <- as.factor(applicants$InsuredInfo_3)
+applicants$InsuredInfo_4 <- as.factor(applicants$InsuredInfo_4)
+applicants$InsuredInfo_5 <- as.factor(applicants$InsuredInfo_5)
+applicants$InsuredInfo_6 <- as.factor(applicants$InsuredInfo_6)
+
 set.seed(2718)
 trainSize <- totRows / 2
 trainInd  <- sample(seq_len(totRows), size = trainSize)
@@ -56,8 +63,14 @@ cat("                        mean ID of test set    : ",   mean(test$Id),  "\n")
 #age_rf <- randomForest(fol2, train)
 #importance(age_rf)
 
-fol3 <- formula(Response ~ Employment_Info_1, Employment_Info_2, Employment_Info_3, Employment_Info_4,
-                           Employment_Info_5, Employment_Info_6, Employment_Info_7)
-emp_rf <- randomForest(fol3, train, na.action = na.omit)
-cat("\nImportance of Employment_Info:\n")
-importance(emp_rf)
+#fol3 <- formula(Response ~ Employment_Info_1, Employment_Info_2, Employment_Info_3, Employment_Info_4,
+#                           Employment_Info_5, Employment_Info_6, Employment_Info_7)
+#emp_rf <- randomForest(fol3, train, na.action = na.omit)
+#cat("\nImportance of Employment_Info:\n")
+#importance(emp_rf)
+
+fol4 <- formula(Response ~ InsuredInfo_1, InsuredInfo_2, InsuredInfo_3, InsuredInfo_4,
+                           InsuredInfo_5, InsuredInfo_6, InsuredInfo_7)
+ins_rf <- randomForest(fol4, train)
+cat("\nImportance of InsuredInfo:\n")
+importance(ins_rf)
