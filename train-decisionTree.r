@@ -25,3 +25,8 @@ r6 <- applicants[applicants$Response == 6,]
 r6 <- applicants[applicants$Response == 7,]
 r8 <- applicants[applicants$Response == 8,]
 
+fol <- formula(Response ~ Product_Info_1 + Product_Info_2 + Product_Info_3 + Product_Info_4_cat + Product_Info_5 + Product_Info_6 + Product_Info_7)
+
+model <- rpart(fol, method="class", data=train)
+cat("\nDecision tree for Product_Info:\n")
+model
