@@ -1,0 +1,264 @@
+Summary of applicant data       Id        Product_Info_1  Product_Info_2  Product_Info_3 
+ Min.   :    2   Min.   :1.000   D3     :14321   Min.   : 1.00  
+ 1st Qu.:19780   1st Qu.:1.000   D4     :10812   1st Qu.:26.00  
+ Median :39487   Median :1.000   A8     : 6835   Median :26.00  
+ Mean   :39507   Mean   :1.026   D1     : 6554   Mean   :24.42  
+ 3rd Qu.:59211   3rd Qu.:1.000   D2     : 6286   3rd Qu.:26.00  
+ Max.   :79146   Max.   :2.000   E1     : 2647   Max.   :38.00  
+                                 (Other):11926                  
+ Product_Info_4    Product_Info_5  Product_Info_6  Product_Info_7 
+ Min.   :0.00000   Min.   :2.000   Min.   :1.000   Min.   :1.000  
+ 1st Qu.:0.07692   1st Qu.:2.000   1st Qu.:3.000   1st Qu.:1.000  
+ Median :0.23077   Median :2.000   Median :3.000   Median :1.000  
+ Mean   :0.32895   Mean   :2.007   Mean   :2.674   Mean   :1.044  
+ 3rd Qu.:0.48718   3rd Qu.:2.000   3rd Qu.:3.000   3rd Qu.:1.000  
+ Max.   :1.00000   Max.   :3.000   Max.   :3.000   Max.   :3.000  
+                                                                  
+    Ins_Age             Ht               Wt              BMI        
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:0.2388   1st Qu.:0.6545   1st Qu.:0.2259   1st Qu.:0.3855  
+ Median :0.4030   Median :0.7091   Median :0.2887   Median :0.4513  
+ Mean   :0.4056   Mean   :0.7073   Mean   :0.2926   Mean   :0.4695  
+ 3rd Qu.:0.5672   3rd Qu.:0.7636   3rd Qu.:0.3452   3rd Qu.:0.5329  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+                                                                    
+ Employment_Info_1 Employment_Info_2 Employment_Info_3 Employment_Info_4
+ Min.   :0.00000   Min.   : 1.000    Min.   :1.000     Min.   :0.000    
+ 1st Qu.:0.03500   1st Qu.: 9.000    1st Qu.:1.000     1st Qu.:0.000    
+ Median :0.06000   Median : 9.000    Median :1.000     Median :0.000    
+ Mean   :0.07758   Mean   : 8.642    Mean   :1.301     Mean   :0.006    
+ 3rd Qu.:0.10000   3rd Qu.: 9.000    3rd Qu.:1.000     3rd Qu.:0.000    
+ Max.   :1.00000   Max.   :38.000    Max.   :3.000     Max.   :1.000    
+ NA's   :19                                            NA's   :6779     
+ Employment_Info_5 Employment_Info_6 InsuredInfo_1   InsuredInfo_2  
+ Min.   :2.000     Min.   :0.000     Min.   :1.000   Min.   :2.000  
+ 1st Qu.:2.000     1st Qu.:0.060     1st Qu.:1.000   1st Qu.:2.000  
+ Median :2.000     Median :0.250     Median :1.000   Median :2.000  
+ Mean   :2.143     Mean   :0.361     Mean   :1.209   Mean   :2.007  
+ 3rd Qu.:2.000     3rd Qu.:0.550     3rd Qu.:1.000   3rd Qu.:2.000  
+ Max.   :3.000     Max.   :1.000     Max.   :3.000   Max.   :3.000  
+                   NA's   :10854                                    
+ InsuredInfo_3    InsuredInfo_4   InsuredInfo_5   InsuredInfo_6  
+ Min.   : 1.000   Min.   :2.000   Min.   :1.000   Min.   :1.000  
+ 1st Qu.: 3.000   1st Qu.:3.000   1st Qu.:1.000   1st Qu.:1.000  
+ Median : 6.000   Median :3.000   Median :1.000   Median :1.000  
+ Mean   : 5.836   Mean   :2.884   Mean   :1.027   Mean   :1.409  
+ 3rd Qu.: 8.000   3rd Qu.:3.000   3rd Qu.:1.000   3rd Qu.:2.000  
+ Max.   :11.000   Max.   :3.000   Max.   :3.000   Max.   :2.000  
+                                                                 
+ InsuredInfo_7   Insurance_History_1 Insurance_History_2 Insurance_History_3
+ Min.   :1.000   Min.   :1.000       Min.   :1.000       Min.   :1.000      
+ 1st Qu.:1.000   1st Qu.:1.000       1st Qu.:1.000       1st Qu.:1.000      
+ Median :1.000   Median :2.000       Median :1.000       Median :3.000      
+ Mean   :1.039   Mean   :1.728       Mean   :1.056       Mean   :2.147      
+ 3rd Qu.:1.000   3rd Qu.:2.000       3rd Qu.:1.000       3rd Qu.:3.000      
+ Max.   :3.000   Max.   :2.000       Max.   :3.000       Max.   :3.000      
+                                                                            
+ Insurance_History_4 Insurance_History_5 Insurance_History_7
+ Min.   :1.000       Min.   :0.000       Min.   :1.000      
+ 1st Qu.:1.000       1st Qu.:0.000       1st Qu.:1.000      
+ Median :2.000       Median :0.001       Median :1.000      
+ Mean   :1.959       Mean   :0.002       Mean   :1.902      
+ 3rd Qu.:3.000       3rd Qu.:0.002       3rd Qu.:3.000      
+ Max.   :3.000       Max.   :1.000       Max.   :3.000      
+                     NA's   :25396                          
+ Insurance_History_8 Insurance_History_9 Family_Hist_1   Family_Hist_2  
+ Min.   :1.000       Min.   :1.000       Min.   :1.000   Min.   :0.000  
+ 1st Qu.:1.000       1st Qu.:2.000       1st Qu.:2.000   1st Qu.:0.362  
+ Median :2.000       Median :2.000       Median :3.000   Median :0.464  
+ Mean   :2.048       Mean   :2.419       Mean   :2.686   Mean   :0.475  
+ 3rd Qu.:3.000       3rd Qu.:3.000       3rd Qu.:3.000   3rd Qu.:0.580  
+ Max.   :3.000       Max.   :3.000       Max.   :3.000   Max.   :1.000  
+                                                         NA's   :28656  
+ Family_Hist_3   Family_Hist_4   Family_Hist_5   Medical_History_1
+ Min.   :0.00    Min.   :0.000   Min.   :0.00    Min.   :  0.000  
+ 1st Qu.:0.40    1st Qu.:0.324   1st Qu.:0.40    1st Qu.:  2.000  
+ Median :0.52    Median :0.423   Median :0.51    Median :  4.000  
+ Mean   :0.50    Mean   :0.445   Mean   :0.48    Mean   :  7.962  
+ 3rd Qu.:0.60    3rd Qu.:0.563   3rd Qu.:0.58    3rd Qu.:  9.000  
+ Max.   :1.00    Max.   :0.944   Max.   :1.00    Max.   :240.000  
+ NA's   :34241   NA's   :19184   NA's   :41811   NA's   :8889     
+ Medical_History_2 Medical_History_3 Medical_History_4 Medical_History_5
+ Min.   :  1       Min.   :1.000     Min.   :1.000     Min.   :1.000    
+ 1st Qu.:112       1st Qu.:2.000     1st Qu.:1.000     1st Qu.:1.000    
+ Median :162       Median :2.000     Median :2.000     Median :1.000    
+ Mean   :254       Mean   :2.102     Mean   :1.655     Mean   :1.007    
+ 3rd Qu.:418       3rd Qu.:2.000     3rd Qu.:2.000     3rd Qu.:1.000    
+ Max.   :648       Max.   :3.000     Max.   :2.000     Max.   :3.000    
+                                                                        
+ Medical_History_6 Medical_History_7 Medical_History_8 Medical_History_9
+ Min.   :1.00      Min.   :1.000     Min.   :1.000     Min.   :1.00     
+ 1st Qu.:3.00      1st Qu.:2.000     1st Qu.:2.000     1st Qu.:2.00     
+ Median :3.00      Median :2.000     Median :2.000     Median :2.00     
+ Mean   :2.89      Mean   :2.012     Mean   :2.044     Mean   :1.77     
+ 3rd Qu.:3.00      3rd Qu.:2.000     3rd Qu.:2.000     3rd Qu.:2.00     
+ Max.   :3.00      Max.   :3.000     Max.   :3.000     Max.   :3.00     
+                                                                        
+ Medical_History_10 Medical_History_11 Medical_History_12 Medical_History_13
+ Min.   :  0.0      Min.   :1.000      Min.   :1.000      Min.   :1.000     
+ 1st Qu.:  8.0      1st Qu.:3.000      1st Qu.:2.000      1st Qu.:3.000     
+ Median :229.0      Median :3.000      Median :2.000      Median :3.000     
+ Mean   :141.1      Mean   :2.994      Mean   :2.057      Mean   :2.768     
+ 3rd Qu.:240.0      3rd Qu.:3.000      3rd Qu.:2.000      3rd Qu.:3.000     
+ Max.   :240.0      Max.   :3.000      Max.   :3.000      Max.   :3.000     
+ NA's   :58824                                                              
+ Medical_History_14 Medical_History_15 Medical_History_16 Medical_History_17
+ Min.   :1.000      Min.   :  0.0      Min.   :1.000      Min.   :1.000     
+ 1st Qu.:3.000      1st Qu.: 17.0      1st Qu.:1.000      1st Qu.:3.000     
+ Median :3.000      Median :117.0      Median :1.000      Median :3.000     
+ Mean   :2.969      Mean   :123.8      Mean   :1.328      Mean   :2.978     
+ 3rd Qu.:3.000      3rd Qu.:240.0      3rd Qu.:1.000      3rd Qu.:3.000     
+ Max.   :3.000      Max.   :240.0      Max.   :3.000      Max.   :3.000     
+                    NA's   :44596                                           
+ Medical_History_18 Medical_History_19 Medical_History_20 Medical_History_21
+ Min.   :1.000      Min.   :1.000      Min.   :1.000      Min.   :1.000     
+ 1st Qu.:1.000      1st Qu.:1.000      1st Qu.:2.000      1st Qu.:1.000     
+ Median :1.000      Median :1.000      Median :2.000      Median :1.000     
+ Mean   :1.054      Mean   :1.034      Mean   :1.985      Mean   :1.109     
+ 3rd Qu.:1.000      3rd Qu.:1.000      3rd Qu.:2.000      3rd Qu.:1.000     
+ Max.   :3.000      Max.   :3.000      Max.   :3.000      Max.   :3.000     
+                                                                            
+ Medical_History_22 Medical_History_23 Medical_History_24 Medical_History_25
+ Min.   :1.000      Min.   :1.000      Min.   :  0.00     Min.   :1.000     
+ 1st Qu.:2.000      1st Qu.:3.000      1st Qu.:  1.00     1st Qu.:1.000     
+ Median :2.000      Median :3.000      Median :  8.00     Median :1.000     
+ Mean   :1.982      Mean   :2.528      Mean   : 50.64     Mean   :1.195     
+ 3rd Qu.:2.000      3rd Qu.:3.000      3rd Qu.: 64.00     3rd Qu.:1.000     
+ Max.   :2.000      Max.   :3.000      Max.   :240.00     Max.   :3.000     
+                                       NA's   :55580                        
+ Medical_History_26 Medical_History_27 Medical_History_28 Medical_History_29
+ Min.   :1.000      Min.   :1.00       Min.   :1.000      Min.   :1.000     
+ 1st Qu.:3.000      1st Qu.:3.00       1st Qu.:1.000      1st Qu.:3.000     
+ Median :3.000      Median :3.00       Median :1.000      Median :3.000     
+ Mean   :2.809      Mean   :2.98       Mean   :1.067      Mean   :2.543     
+ 3rd Qu.:3.000      3rd Qu.:3.00       3rd Qu.:1.000      3rd Qu.:3.000     
+ Max.   :3.000      Max.   :3.00       Max.   :3.000      Max.   :3.000     
+                                                                            
+ Medical_History_30 Medical_History_31 Medical_History_32 Medical_History_33
+ Min.   :1.000      Min.   :1.000      Min.   :  0.00     Min.   :1.000     
+ 1st Qu.:2.000      1st Qu.:3.000      1st Qu.:  0.00     1st Qu.:3.000     
+ Median :2.000      Median :3.000      Median :  0.00     Median :3.000     
+ Mean   :2.041      Mean   :2.985      Mean   : 11.97     Mean   :2.805     
+ 3rd Qu.:2.000      3rd Qu.:3.000      3rd Qu.:  2.00     3rd Qu.:3.000     
+ Max.   :3.000      Max.   :3.000      Max.   :240.00     Max.   :3.000     
+                                       NA's   :58274                        
+ Medical_History_34 Medical_History_35 Medical_History_36 Medical_History_37
+ Min.   :1.000      Min.   :1.000      Min.   :1.000      Min.   :1.000     
+ 1st Qu.:3.000      1st Qu.:1.000      1st Qu.:2.000      1st Qu.:2.000     
+ Median :3.000      Median :1.000      Median :2.000      Median :2.000     
+ Mean   :2.689      Mean   :1.002      Mean   :2.179      Mean   :1.938     
+ 3rd Qu.:3.000      3rd Qu.:1.000      3rd Qu.:2.000      3rd Qu.:2.000     
+ Max.   :3.000      Max.   :3.000      Max.   :3.000      Max.   :3.000     
+                                                                            
+ Medical_History_38 Medical_History_39 Medical_History_40 Medical_History_41
+ Min.   :1.000      Min.   :1.000      Min.   :1.000      Min.   :1.000     
+ 1st Qu.:1.000      1st Qu.:3.000      1st Qu.:3.000      1st Qu.:1.000     
+ Median :1.000      Median :3.000      Median :3.000      Median :1.000     
+ Mean   :1.005      Mean   :2.831      Mean   :2.968      Mean   :1.641     
+ 3rd Qu.:1.000      3rd Qu.:3.000      3rd Qu.:3.000      3rd Qu.:3.000     
+ Max.   :2.000      Max.   :3.000      Max.   :3.000      Max.   :3.000     
+                                                                            
+ Medical_Keyword_1 Medical_Keyword_2  Medical_Keyword_3 Medical_Keyword_4
+ Min.   :0.000     Min.   :0.000000   Min.   :0.00000   Min.   :0.00000  
+ 1st Qu.:0.000     1st Qu.:0.000000   1st Qu.:0.00000   1st Qu.:0.00000  
+ Median :0.000     Median :0.000000   Median :0.00000   Median :0.00000  
+ Mean   :0.042     Mean   :0.008942   Mean   :0.04927   Mean   :0.01455  
+ 3rd Qu.:0.000     3rd Qu.:0.000000   3rd Qu.:0.00000   3rd Qu.:0.00000  
+ Max.   :1.000     Max.   :1.000000   Max.   :1.00000   Max.   :1.00000  
+                                                                         
+ Medical_Keyword_5  Medical_Keyword_6 Medical_Keyword_7 Medical_Keyword_8
+ Min.   :0.000000   Min.   :0.0000    Min.   :0.00000   Min.   :0.00000  
+ 1st Qu.:0.000000   1st Qu.:0.0000    1st Qu.:0.00000   1st Qu.:0.00000  
+ Median :0.000000   Median :0.0000    Median :0.00000   Median :0.00000  
+ Mean   :0.008622   Mean   :0.0126    Mean   :0.01391   Mean   :0.01041  
+ 3rd Qu.:0.000000   3rd Qu.:0.0000    3rd Qu.:0.00000   3rd Qu.:0.00000  
+ Max.   :1.000000   Max.   :1.0000    Max.   :1.00000   Max.   :1.00000  
+                                                                         
+ Medical_Keyword_9  Medical_Keyword_10 Medical_Keyword_11 Medical_Keyword_12
+ Min.   :0.000000   Min.   :0.00000    Min.   :0.00000    Min.   :0.00      
+ 1st Qu.:0.000000   1st Qu.:0.00000    1st Qu.:0.00000    1st Qu.:0.00      
+ Median :0.000000   Median :0.00000    Median :0.00000    Median :0.00      
+ Mean   :0.006652   Mean   :0.03646    Mean   :0.05802    Mean   :0.01      
+ 3rd Qu.:0.000000   3rd Qu.:0.00000    3rd Qu.:0.00000    3rd Qu.:0.00      
+ Max.   :1.000000   Max.   :1.00000    Max.   :1.00000    Max.   :1.00      
+                                                                            
+ Medical_Keyword_13 Medical_Keyword_14 Medical_Keyword_15 Medical_Keyword_16
+ Min.   :0.000000   Min.   :0.000000   Min.   :0.0000     Min.   :0.00000   
+ 1st Qu.:0.000000   1st Qu.:0.000000   1st Qu.:0.0000     1st Qu.:0.00000   
+ Median :0.000000   Median :0.000000   Median :0.0000     Median :0.00000   
+ Mean   :0.005961   Mean   :0.007848   Mean   :0.1905     Mean   :0.01271   
+ 3rd Qu.:0.000000   3rd Qu.:0.000000   3rd Qu.:0.0000     3rd Qu.:0.00000   
+ Max.   :1.000000   Max.   :1.000000   Max.   :1.0000     Max.   :1.00000   
+                                                                            
+ Medical_Keyword_17 Medical_Keyword_18 Medical_Keyword_19 Medical_Keyword_20
+ Min.   :0.000000   Min.   :0.000000   Min.   :0.000000   Min.   :0.000000  
+ 1st Qu.:0.000000   1st Qu.:0.000000   1st Qu.:0.000000   1st Qu.:0.000000  
+ Median :0.000000   Median :0.000000   Median :0.000000   Median :0.000000  
+ Mean   :0.009161   Mean   :0.007494   Mean   :0.009296   Mean   :0.008134  
+ 3rd Qu.:0.000000   3rd Qu.:0.000000   3rd Qu.:0.000000   3rd Qu.:0.000000  
+ Max.   :1.000000   Max.   :1.000000   Max.   :1.000000   Max.   :1.000000  
+                                                                            
+ Medical_Keyword_21 Medical_Keyword_22 Medical_Keyword_23 Medical_Keyword_24
+ Min.   :0.0000     Min.   :0.00000    Min.   :0.00000    Min.   :0.00000   
+ 1st Qu.:0.0000     1st Qu.:0.00000    1st Qu.:0.00000    1st Qu.:0.00000   
+ Median :0.0000     Median :0.00000    Median :0.00000    Median :0.00000   
+ Mean   :0.0146     Mean   :0.03717    Mean   :0.09778    Mean   :0.01889   
+ 3rd Qu.:0.0000     3rd Qu.:0.00000    3rd Qu.:0.00000    3rd Qu.:0.00000   
+ Max.   :1.0000     Max.   :1.00000    Max.   :1.00000    Max.   :1.00000   
+                                                                            
+ Medical_Keyword_25 Medical_Keyword_26 Medical_Keyword_27 Medical_Keyword_28
+ Min.   :0.00000    Min.   :0.00000    Min.   :0.00000    Min.   :0.00000   
+ 1st Qu.:0.00000    1st Qu.:0.00000    1st Qu.:0.00000    1st Qu.:0.00000   
+ Median :0.00000    Median :0.00000    Median :0.00000    Median :0.00000   
+ Mean   :0.08946    Mean   :0.01344    Mean   :0.01186    Mean   :0.01494   
+ 3rd Qu.:0.00000    3rd Qu.:0.00000    3rd Qu.:0.00000    3rd Qu.:0.00000   
+ Max.   :1.00000    Max.   :1.00000    Max.   :1.00000    Max.   :1.00000   
+                                                                            
+ Medical_Keyword_29 Medical_Keyword_30 Medical_Keyword_31 Medical_Keyword_32
+ Min.   :0.00000    Min.   :0.00000    Min.   :0.0000     Min.   :0.00000   
+ 1st Qu.:0.00000    1st Qu.:0.00000    1st Qu.:0.0000     1st Qu.:0.00000   
+ Median :0.00000    Median :0.00000    Median :0.0000     Median :0.00000   
+ Mean   :0.01175    Mean   :0.02504    Mean   :0.0109     Mean   :0.02117   
+ 3rd Qu.:0.00000    3rd Qu.:0.00000    3rd Qu.:0.0000     3rd Qu.:0.00000   
+ Max.   :1.00000    Max.   :1.00000    Max.   :1.0000     Max.   :1.00000   
+                                                                            
+ Medical_Keyword_33 Medical_Keyword_34 Medical_Keyword_35 Medical_Keyword_36
+ Min.   :0.00000    Min.   :0.00000    Min.   :0.000000   Min.   :0.00000   
+ 1st Qu.:0.00000    1st Qu.:0.00000    1st Qu.:0.000000   1st Qu.:0.00000   
+ Median :0.00000    Median :0.00000    Median :0.000000   Median :0.00000   
+ Mean   :0.02284    Mean   :0.02065    Mean   :0.006938   Mean   :0.01041   
+ 3rd Qu.:0.00000    3rd Qu.:0.00000    3rd Qu.:0.000000   3rd Qu.:0.00000   
+ Max.   :1.00000    Max.   :1.00000    Max.   :1.000000   Max.   :1.00000   
+                                                                            
+ Medical_Keyword_37 Medical_Keyword_38 Medical_Keyword_39 Medical_Keyword_40
+ Min.   :0.00000    Min.   :0.000000   Min.   :0.00000    Min.   :0.00000   
+ 1st Qu.:0.00000    1st Qu.:0.000000   1st Qu.:0.00000    1st Qu.:0.00000   
+ Median :0.00000    Median :0.000000   Median :0.00000    Median :0.00000   
+ Mean   :0.06659    Mean   :0.006837   Mean   :0.01366    Mean   :0.05695   
+ 3rd Qu.:0.00000    3rd Qu.:0.000000   3rd Qu.:0.00000    3rd Qu.:0.00000   
+ Max.   :1.00000    Max.   :1.000000   Max.   :1.00000    Max.   :1.00000   
+                                                                            
+ Medical_Keyword_41 Medical_Keyword_42 Medical_Keyword_43 Medical_Keyword_44
+ Min.   :0.00000    Min.   :0.00000    Min.   :0.00000    Min.   :0.000000  
+ 1st Qu.:0.00000    1st Qu.:0.00000    1st Qu.:0.00000    1st Qu.:0.000000  
+ Median :0.00000    Median :0.00000    Median :0.00000    Median :0.000000  
+ Mean   :0.01005    Mean   :0.04554    Mean   :0.01071    Mean   :0.007528  
+ 3rd Qu.:0.00000    3rd Qu.:0.00000    3rd Qu.:0.00000    3rd Qu.:0.000000  
+ Max.   :1.00000    Max.   :1.00000    Max.   :1.00000    Max.   :1.000000  
+                                                                            
+ Medical_Keyword_45 Medical_Keyword_46 Medical_Keyword_47 Medical_Keyword_48
+ Min.   :0.00000    Min.   :0.000000   Min.   :0.00000    Min.   :0.0000    
+ 1st Qu.:0.00000    1st Qu.:0.000000   1st Qu.:0.00000    1st Qu.:0.0000    
+ Median :0.00000    Median :0.000000   Median :0.00000    Median :0.0000    
+ Mean   :0.01369    Mean   :0.008488   Mean   :0.01991    Mean   :0.0545    
+ 3rd Qu.:0.00000    3rd Qu.:0.000000   3rd Qu.:0.00000    3rd Qu.:0.0000    
+ Max.   :1.00000    Max.   :1.000000   Max.   :1.00000    Max.   :1.0000    
+                                                                            
+    Response    
+ Min.   :1.000  
+ 1st Qu.:4.000  
+ Median :6.000  
+ Mean   :5.637  
+ 3rd Qu.:8.000  
+ Max.   :8.000  
+                
