@@ -1,0 +1,29 @@
+Kaggle Completition Assignment, Predictive Analytics
+
+This is Bob Stine's submission for the Predictive Analytics assignment to complete
+a problem from the Kaggle competition.
+
+PART 1: PROBLEM DESCRIPTION
+
+I chose the "BNP Paribas Cardif Claims Management" problem, described here:
+
+https://www.kaggle.com/c/bnp-paribas-cardif-claims-management/
+
+This problem is to develop an automated method to sort submitted insurance
+claims into two categories:
+    1. claims for which approval could be accelerated
+    2. claims that require addional information before they can be approved.
+
+The anonymized claim data contains 134 categorical and numberic variables.  The result
+is 1 for suitable for accelerated approval, 0 for claims requiring more information.
+
+The task is to predict the probability that a claims adjuster would approve a particular claim.
+
+PART 2: INITIAL ANALYSIS APPROACH
+
+The initial approach is to use R to:
+
+1. Partition the data into a training set and a test set.
+2. Train a decision tree to predict accelerated claim approval,
+   using the training set.
+3. Observe results when the tree is applied to the test set.
