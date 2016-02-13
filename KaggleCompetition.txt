@@ -28,3 +28,19 @@ After selecting and preparing the fields to use as input, use R to:
 2. Train a decision tree to predict accelerated claim approval,
    using the training set.
 3. Observe results when the tree is applied to the test set.
+
+PART 3: INITIAL SOLUTION
+
+A decision tree with all columns would be intractible.  I decided by pick factors by running initial models with 
+only certain categories of factors, to see whether they could create a decision tree that identified risk.
+
+Test 1: Product ID.  
+
+The insurance products are in 7 different categories, ProductInfo_1 - 7.  Product_Info_4 is continuous, so I
+converted this to 5 "chunks".
+
+The resulting dedcision tree had no branches; it concluded that risk would always be 8.
+
+Test 2: Body Attributes
+
+Age, height, weight, BMI.
