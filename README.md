@@ -7,5 +7,5 @@ This project is my response to an assignment in
 The assignment was to complete a competition problem posed by Kaggle, "the home of Data Science".
 See https://www.kaggle.com/.
 
-The problem I chose to tackle was in predictino whether insurance claims were appropriate for expedited service, as
-opposed to requiring more information.
+The problem I chose to tackle was in predicting the risk of insurance applicants, based on factors such as age,
+weight, health history, and employment history.

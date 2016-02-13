@@ -5,19 +5,13 @@ a problem from the Kaggle competition.
 
 PART 1: PROBLEM DESCRIPTION
 
-I chose the "BNP Paribas Cardif Claims Management" problem, described here:
+I chose the "Prudential Life Insurance Assessment" problem, described here:
 
-https://www.kaggle.com/c/bnp-paribas-cardif-claims-management/
+https://www.kaggle.com/c/prudential-life-insurance-assessment/data
 
-This problem is to develop an automated method to sort submitted insurance
-claims into two categories:
-    1. claims for which approval could be accelerated
-    2. claims that require addional information before they can be approved.
-
-The anonymized claim data contains 134 categorical and numberic variables.  The result
-is 1 for suitable for accelerated approval, 0 for claims requiring more information.
-
-The task is to predict the probability that a claims adjuster would approve a particular claim.
+This problem is to develop an automated method to evaluate risk of granting 
+life insurance to applicants, given values such as age, weight, health history,
+and employment history.  Risk is an ordinal measure of 8 levels.
 
 PART 2: INITIAL ANALYSIS APPROACH
 
