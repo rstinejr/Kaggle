@@ -37,6 +37,15 @@ applicants$Insurance_History_9 <- as.factor(applicants$Insurance_History_9)
 
 applicants$Family_Hist_1 <- as.factor(applicants$Family_Hist_1)
 
+applicants$Medical_History_2 <- as.factor(applicants$Medical_History_2)
+applicants$Medical_History_3 <- as.factor(applicants$Medical_History_3)
+applicants$Medical_History_4 <- as.factor(applicants$Medical_History_4)
+applicants$Medical_History_5 <- as.factor(applicants$Medical_History_5)
+applicants$Medical_History_6 <- as.factor(applicants$Medical_History_6)
+applicants$Medical_History_7 <- as.factor(applicants$Medical_History_7)
+applicants$Medical_History_8 <- as.factor(applicants$Medical_History_8)
+applicants$Medical_History_9 <- as.factor(applicants$Medical_History_9)
+
 set.seed(2718)
 trainSize <- totRows / 2
 trainInd  <- sample(seq_len(totRows), size = trainSize)
@@ -93,8 +102,15 @@ cat("                        mean ID of test set    : ",   mean(test$Id),  "\n")
 #cat("\nImportance of Insurance_History:\n")
 #importance(ins_hist_rf)
 
-fol6 <- formula(Response ~ Family_Hist_1, Family_Hist_2, Family_Hist_3, Family_Hist_4,
-                           Family_Hist_5)
-fam_hist_rf <- randomForest(fol6, train)
-cat("\nImportance of Family_Hist:\n")
-importance(fam_hist_rf)
+#fol6 <- formula(Response ~ Family_Hist_1, Family_Hist_2, Family_Hist_3, Family_Hist_4,
+#                           Family_Hist_5)
+#fam_hist_rf <- randomForest(fol6, train)
+#cat("\nImportance of Family_Hist:\n")
+#importance(fam_hist_rf)
+
+fol7 <- formula(Response ~ Medical_History_1, Medical_History_2, Medical_History_3, Medical_History_4,
+                           Medical_History_5, Medical_History_6, Medical_History_7, Medical_History_8,
+                           Medical_History_9)
+med_hist_rf <- randomForest(fol7, train, na.action = na.omit)
+cat("\nImportance of Medical_History 1 - 9:\n")
+importance(med_hist_rf)

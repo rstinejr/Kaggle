@@ -102,9 +102,10 @@ The results were as follows:
                   IncNodePurity
     Family_Hist_1       894.984
 
+    Importance of Group 7, Medical_History 1 - 9:
+                      IncNodePurity
+    Medical_History_1      5583.196
 
 
-
-
-There are misssing values in Group 3, Employment Info.  randomForest cannot handle missing values in the
-predictor attribues.  We elected to omit these values.
+There are misssing values in Group 3, Employment Info, and Group 7, Medical_History 1 - 9. Since
+randomForest cannot handle missing values in the predictor attribues, I elected to omit these values.
