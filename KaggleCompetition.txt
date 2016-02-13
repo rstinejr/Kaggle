@@ -98,6 +98,11 @@ The results were as follows:
                         IncNodePurity
     Insurance_History_1       6.69848
 
+    Importance of Group 6, Family_Hist:
+                  IncNodePurity
+    Family_Hist_1       894.984
+
+
 
 
 
