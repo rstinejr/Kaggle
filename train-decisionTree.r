@@ -1,4 +1,5 @@
 library(plyr)
+library(randomForest)
 library(rpart)
 
 cat("Start training session for decision trees.\n")
@@ -36,8 +37,13 @@ model1 <- rpart(fol1, method="class", data=train)
 cat("\nDecision tree for product type:\n")
 model1
 
-fol2   <- formula(Response ~ Ins_Age_cat, Ht_cat, Wt_cat, BMI_cat)
+fol2   <- formula(Response ~ Ins_Age, Ht, Wt, BMI)
 model2 <- rpart(fol2, method="class", data=train)
 cat("\nDecision tree for age, weight:\n")
 model2
 
+mod_rf = randomForest(fol2, train)
+cat("\n\nRandom forest, age and weight:\n")
+mod_rf
+cat("\nimportance:\n")
+importance(mod_rf)
