@@ -46,6 +46,15 @@ applicants$Medical_History_7 <- as.factor(applicants$Medical_History_7)
 applicants$Medical_History_8 <- as.factor(applicants$Medical_History_8)
 applicants$Medical_History_9 <- as.factor(applicants$Medical_History_9)
 
+applicants$Medical_History_11 <- as.factor(applicants$Medical_History_11)
+applicants$Medical_History_12 <- as.factor(applicants$Medical_History_12)
+applicants$Medical_History_13 <- as.factor(applicants$Medical_History_13)
+applicants$Medical_History_14 <- as.factor(applicants$Medical_History_14)
+applicants$Medical_History_16 <- as.factor(applicants$Medical_History_16)
+applicants$Medical_History_17 <- as.factor(applicants$Medical_History_17)
+applicants$Medical_History_18 <- as.factor(applicants$Medical_History_18)
+applicants$Medical_History_19 <- as.factor(applicants$Medical_History_19)
+
 set.seed(2718)
 trainSize <- totRows / 2
 trainInd  <- sample(seq_len(totRows), size = trainSize)
@@ -108,9 +117,16 @@ cat("                        mean ID of test set    : ",   mean(test$Id),  "\n")
 #cat("\nImportance of Family_Hist:\n")
 #importance(fam_hist_rf)
 
-fol7 <- formula(Response ~ Medical_History_1, Medical_History_2, Medical_History_3, Medical_History_4,
-                           Medical_History_5, Medical_History_6, Medical_History_7, Medical_History_8,
-                           Medical_History_9)
-med_hist_rf <- randomForest(fol7, train, na.action = na.omit)
-cat("\nImportance of Medical_History 1 - 9:\n")
+#fol7 <- formula(Response ~ Medical_History_1, Medical_History_2, Medical_History_3, Medical_History_4,
+#                           Medical_History_5, Medical_History_6, Medical_History_7, Medical_History_8,
+#                           Medical_History_9)
+#med_hist_rf <- randomForest(fol7, train, na.action = na.omit)
+#cat("\nImportance of Medical_History 1 - 9:\n")
+#importance(med_hist_rf)
+
+fol8 <- formula(Response ~ Medical_History_10, Medical_History_11, Medical_History_12, Medical_History_13,
+                           Medical_History_14, Medical_History_15, Medical_History_16, Medical_History_17,
+                           Medical_History_18, Medical_History_19)
+med_hist_rf <- randomForest(fol8, train, na.action = na.omit)
+cat("\nImportance of Medical_History 10 - 19:\n")
 importance(med_hist_rf)
