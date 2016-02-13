@@ -254,11 +254,11 @@ Summary of applicant data       Id        Product_Info_1  Product_Info_2  Produc
  3rd Qu.:0.00000    3rd Qu.:0.000000   3rd Qu.:0.00000    3rd Qu.:0.0000    
  Max.   :1.00000    Max.   :1.000000   Max.   :1.00000    Max.   :1.0000    
                                                                             
-    Response    
- Min.   :1.000  
- 1st Qu.:4.000  
- Median :6.000  
- Mean   :5.637  
- 3rd Qu.:8.000  
- Max.   :8.000  
-                
+    Response        Product_Info_4_cat
+ Min.   :1.000   (-0.001,0.2]:21416   
+ 1st Qu.:4.000   (0.2,0.4]   :19230   
+ Median :6.000   (0.4,0.6]   :10645   
+ Mean   :5.637   (0.6,0.8]   : 2087   
+ 3rd Qu.:8.000   (0.8,1]     : 6003   
+ Max.   :8.000                        
+                                      
