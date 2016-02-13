@@ -21,7 +21,14 @@ The task is to predict the probability that a claims adjuster would approve a pa
 
 PART 2: INITIAL ANALYSIS APPROACH
 
-The initial approach is to use R to:
+The first step is to analyze the data.  Some fields are integral, others are
+categorical. The initial steps will be:
+
+1. review the fields and their values.
+2. select fields to use in model.
+3. "chunk" integral fields into categories, based on their ranges. 
+
+After selecting and preparing the fields to use as input, use R to:
 
 1. Partition the data into a training set and a test set.
 2. Train a decision tree to predict accelerated claim approval,
