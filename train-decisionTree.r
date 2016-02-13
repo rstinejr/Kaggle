@@ -1,4 +1,5 @@
 library(e1071)
+#library(party)
 library(plyr)
 library(randomForest)
 library(rpart)
@@ -25,6 +26,9 @@ cat("                        mean ID of test set    : ",   mean(test$Id),  "\n")
 
 fol1 <- formula(Response ~ Product_Info_1 + Product_Info_2 + Product_Info_3 + Product_Info_4
                           + Product_Info_5 + Product_Info_6 + Product_Info_7)
+#$fit1 <- ctree(fol1, train)
+#cat("ctree based on product info:\n")
+#fit1
 model1 <- rpart(fol1, method="class", data=train)
 cat("\nDecision tree for product type:\n")
 model1
@@ -33,3 +37,7 @@ fol2   <- formula(Response ~ Ins_Age, Ht, Wt, BMI)
 model2 <- rpart(fol2, method="class", data=train)
 cat("\nDecision tree for age, weight:\n")
 model2
+
+#cat("ctree based on age/weight:\n")
+#fit2 <- ctree(fol2, train)
+#fit2
