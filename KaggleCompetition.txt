@@ -19,8 +19,8 @@ The first step is to analyze the data.  Some fields are integral, others are
 categorical. The initial steps will be:
 
 1. review the fields and their values.
-2. select fields to use in model.
-3. "chunk" integral fields into categories, based on their ranges. 
+2. select fields to use in model, and identity those which are "nominal" 
+   (i.e., labels rather than integer or real values).
 
 After selecting and preparing the fields to use as input, use R to:
 
@@ -31,16 +31,55 @@ After selecting and preparing the fields to use as input, use R to:
 
 PART 3: INITIAL SOLUTION
 
+Before analysis, as a sanity checkon the partition between training and test data, I computed the mean of record ID, which in
+the file is a strictly increasing integer.  The mean is close to equal in the two subsets:
+
+    Training set extracted, mean ID of training set:  39605.79 
+                            mean ID of test set    :  39408.64 
+ 
 A decision tree with all columns would be intractible.  I decided by pick factors by running initial models with 
 only certain categories of factors, to see whether they could create a decision tree that identified risk.
 
-Test 1: Product ID.  
 
-The insurance products are in 7 different categories, ProductInfo_1 - 7.  Product_Info_4 is continuous, so I
-converted this to 5 "chunks".
+Group 1: Product ID.  
 
-The resulting dedcision tree had no branches; it concluded that risk would always be 8.
+The insurance products are in 7 different categories, ProductInfo_1 - 7.  All but ProductInfo_4 are discrete, nominal values,
+so I redefined them "as.factor" before building the model.  The R function "rpart" generated a decision tree based only
+on ProductInfo_4, with one branch selecting Response 5, the other selecting Response 8. 
 
-Test 2: Body Attributes
+But when I applied a random tree, it appear
 
-Age, height, weight, BMI.
+Group 2: Body Attributes
+
+This group contains the attributes Age, height, weight, BMI.  The R function "rpart" generated a one-node
+decision tree: always pick Response 8.
+
+PART 4: ANALYSIS OF INITIAL SOLUTION
+
+In the initial work with R's classification tree generator, "rpart", I generated several degenerate trees: a constant choice
+to pick Response 8. In other words, the tree had no branches.
+
+This effect is probably because within the 8 result categories, the distribution is very uneven - the majority 
+are category 8.  Several of the nominal fields also have a preponderance of a particular value, rather than an
+even distribution.
+
+In response, I adopted an alternative method: identify candidate factors by generating a random forest and then applying the 
+"importance" function to it.
+
+The results were as follows:
+
+    Importance of Group 1, Product_Info fields:
+                   IncNodePurity
+    Product_Info_1      196.1271
+    Product_Info_2    10558.5313
+    Product_Info_3     2302.8496
+    Product_Info_4    10290.4014
+    Product_Info_5      134.1557
+    Product_Info_6      376.6041
+    Product_Info_7      225.4159
+
+    Importance, Group 2, age/wt:
+            IncNodePurity
+    Ins_Age      9011.543
+    (no other factors were listed)
+
