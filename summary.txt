@@ -1,19 +1,19 @@
-Summary of applicant data       Id        Product_Info_1  Product_Info_2  Product_Info_3 
- Min.   :    2   Min.   :1.000   D3     :14321   Min.   : 1.00  
- 1st Qu.:19780   1st Qu.:1.000   D4     :10812   1st Qu.:26.00  
- Median :39487   Median :1.000   A8     : 6835   Median :26.00  
- Mean   :39507   Mean   :1.026   D1     : 6554   Mean   :24.42  
- 3rd Qu.:59211   3rd Qu.:1.000   D2     : 6286   3rd Qu.:26.00  
- Max.   :79146   Max.   :2.000   E1     : 2647   Max.   :38.00  
-                                 (Other):11926                  
- Product_Info_4    Product_Info_5  Product_Info_6  Product_Info_7 
- Min.   :0.00000   Min.   :2.000   Min.   :1.000   Min.   :1.000  
- 1st Qu.:0.07692   1st Qu.:2.000   1st Qu.:3.000   1st Qu.:1.000  
- Median :0.23077   Median :2.000   Median :3.000   Median :1.000  
- Mean   :0.32895   Mean   :2.007   Mean   :2.674   Mean   :1.044  
- 3rd Qu.:0.48718   3rd Qu.:2.000   3rd Qu.:3.000   3rd Qu.:1.000  
- Max.   :1.00000   Max.   :3.000   Max.   :3.000   Max.   :3.000  
-                                                                  
+Summary of applicant data       Id        Product_Info_1 Product_Info_2  Product_Info_3 
+ Min.   :    2   1:57816        D3     :14321   26     :50892  
+ 1st Qu.:19780   2: 1565        D4     :10812   10     : 6008  
+ Median :39487                  A8     : 6835   29     : 1334  
+ Mean   :39507                  D1     : 6554   31     :  411  
+ 3rd Qu.:59211                  D2     : 6286   15     :  251  
+ Max.   :79146                  E1     : 2647   37     :  139  
+                                (Other):11926   (Other):  346  
+ Product_Info_4    Product_Info_5 Product_Info_6 Product_Info_7
+ Min.   :0.00000   2:58968        1: 9691        1:58086       
+ 1st Qu.:0.07692   3:  413        3:49690        2:    2       
+ Median :0.23077                                 3: 1293       
+ Mean   :0.32895                                               
+ 3rd Qu.:0.48718                                               
+ Max.   :1.00000                                               
+                                                               
     Ins_Age             Ht               Wt              BMI        
  Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
  1st Qu.:0.2388   1st Qu.:0.6545   1st Qu.:0.2259   1st Qu.:0.3855  
@@ -254,11 +254,11 @@ Summary of applicant data       Id        Product_Info_1  Product_Info_2  Produc
  3rd Qu.:0.00000    3rd Qu.:0.000000   3rd Qu.:0.00000    3rd Qu.:0.0000    
  Max.   :1.00000    Max.   :1.000000   Max.   :1.00000    Max.   :1.0000    
                                                                             
-    Response        Product_Info_4_cat
- Min.   :1.000   (-0.001,0.2]:21416   
- 1st Qu.:4.000   (0.2,0.4]   :19230   
- Median :6.000   (0.4,0.6]   :10645   
- Mean   :5.637   (0.6,0.8]   : 2087   
- 3rd Qu.:8.000   (0.8,1]     : 6003   
- Max.   :8.000                        
-                                      
+    Response    
+ Min.   :1.000  
+ 1st Qu.:4.000  
+ Median :6.000  
+ Mean   :5.637  
+ 3rd Qu.:8.000  
+ Max.   :8.000  
+                
