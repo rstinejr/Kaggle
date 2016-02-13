@@ -94,6 +94,9 @@ The results were as follows:
                   IncNodePurity
     InsuredInfo_1      1338.307
 
+    Importance of Group 5, Insurance_History:
+                        IncNodePurity
+    Insurance_History_1       6.69848
 
 
 

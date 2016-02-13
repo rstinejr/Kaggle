@@ -25,6 +25,15 @@ applicants$InsuredInfo_3 <- as.factor(applicants$InsuredInfo_3)
 applicants$InsuredInfo_4 <- as.factor(applicants$InsuredInfo_4)
 applicants$InsuredInfo_5 <- as.factor(applicants$InsuredInfo_5)
 applicants$InsuredInfo_6 <- as.factor(applicants$InsuredInfo_6)
+applicants$InsuredInfo_7 <- as.factor(applicants$InsuredInfo_7)
+
+applicants$Insurance_History_1 <- as.factor(applicants$Insurance_History_1)
+applicants$Insurance_History_2 <- as.factor(applicants$Insurance_History_2)
+applicants$Insurance_History_3 <- as.factor(applicants$Insurance_History_3)
+applicants$Insurance_History_4 <- as.factor(applicants$Insurance_History_4)
+applicants$Insurance_History_7 <- as.factor(applicants$Insurance_History_7)
+applicants$Insurance_History_8 <- as.factor(applicants$Insurance_History_8)
+applicants$Insurance_History_9 <- as.factor(applicants$Insurance_History_9)
 
 set.seed(2718)
 trainSize <- totRows / 2
@@ -69,8 +78,15 @@ cat("                        mean ID of test set    : ",   mean(test$Id),  "\n")
 #cat("\nImportance of Employment_Info:\n")
 #importance(emp_rf)
 
-fol4 <- formula(Response ~ InsuredInfo_1, InsuredInfo_2, InsuredInfo_3, InsuredInfo_4,
-                           InsuredInfo_5, InsuredInfo_6, InsuredInfo_7)
-ins_rf <- randomForest(fol4, train)
-cat("\nImportance of InsuredInfo:\n")
-importance(ins_rf)
+#fol4 <- formula(Response ~ InsuredInfo_1, InsuredInfo_2, InsuredInfo_3, InsuredInfo_4,
+#                           InsuredInfo_5, InsuredInfo_6, InsuredInfo_7)
+#ins_rf <- randomForest(fol4, train)
+#cat("\nImportance of InsuredInfo:\n")
+#importance(ins_rf)
+
+fol5 <- formula(Response ~ Insurance_History_1, Insurance_History_2, Insurance_History_3, Insurance_History_4,
+                           Insurance_History_5, Insurance_History_6, Insurance_History_7, Insurance_History_8,
+                           Insurance_History_9)
+ins_hist_rf <- randomForest(fol5, train)
+cat("\nImportance of Insurance_History:\n")
+importance(ins_hist_rf)
