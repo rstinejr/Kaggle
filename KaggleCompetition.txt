@@ -90,6 +90,11 @@ The results were as follows:
 
     (no other factors were listed)
 
+    Importance of Group 4, InsuredInfo:
+                  IncNodePurity
+    InsuredInfo_1      1338.307
+
+
 
 
 
