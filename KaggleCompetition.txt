@@ -149,3 +149,12 @@ measure of importance from report forest only picked Product_info_2:
     Importance in revised model
                    IncNodePurity
     Product_Info_2      12495.77
+
+FURTHER ANALYSIS
+
+Perhaps the results are defuse because I have treated "risk" categories as unrelated, when in fact they are an
+ordinal relation, from highest risk (1) to lowest (8).  In an attempt to get some predictive power from the
+data, I reran the "rpart" function as a regression, rather than a classification.  The training results were
+as follows:
+
+

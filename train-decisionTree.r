@@ -87,19 +87,19 @@ cat("\nTraining set extracted, mean ID of training set: ", mean(train$Id), "\n")
 cat("                        mean ID of test set    : ",   mean(test$Id),  "\n")
 
 
-#fol1 <- formula(Response ~ Product_Info_1 + Product_Info_2 + Product_Info_3 + Product_Info_4
-#                          + Product_Info_5 + Product_Info_6 + Product_Info_7)
+fol1 <- formula(Response ~ Product_Info_1 + Product_Info_2 + Product_Info_3 + Product_Info_4
+                          + Product_Info_5 + Product_Info_6 + Product_Info_7)
 #fit1 <- ctree(fol1, train)
 #cat("ctree based on product info:\n")
 #fit1
 
-#model1 <- rpart(fol1, method="class", data=train)
-#cat("\nDecision tree for product type:\n")
-#model1
+model1 <- rpart(fol1, method="anova", data=train)
+cat("\nDecision tree for product type:\n")
+model1
 
-#prod_rf = randomForest(fol1, train)
-#cat("\nimportance of Product_Info fields:\n")
-#importance(prod_rf)
+prod_rf = randomForest(fol1, train)
+cat("\nimportance of Product_Info fields:\n")
+importance(prod_rf)
 
 #fol2   <- formula(Response ~ Ins_Age, Ht, Wt, BMI)
 
@@ -107,7 +107,7 @@ cat("                        mean ID of test set    : ",   mean(test$Id),  "\n")
 #fit2 <- ctree(fol2, train)
 #fit2
 
-#model2 <- rpart(fol2, method="class", data=train)
+#model2 <- rpart(fol2, method="anova", data=train)
 #cat("\nDecision tree for age, weight:\n")
 #model2
 
@@ -172,7 +172,7 @@ fol <- formula(Response ~ Product_Info_2,     Product_Info_3, Product_Info_4, In
                           Employment_Info_1,  Insured_Info_1, Family_Hist_1,  Medicat_History_1,
                           Medical_History_20, Medical_History_30)
 
-model <- rpart(fol, method="class", data=train)
+model <- rpart(fol, method="anova", data=train)
 cat("\nDecision tree for revised model:\n")
 model
 
