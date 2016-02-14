@@ -87,95 +87,94 @@ cat("\nTraining set extracted, mean ID of training set: ", mean(train$Id), "\n")
 cat("                        mean ID of test set    : ",   mean(test$Id),  "\n")
 
 
+if (FALSE)
+{
 fol1 <- formula(Response ~ Product_Info_1 + Product_Info_2 + Product_Info_3 + Product_Info_4
                           + Product_Info_5 + Product_Info_6 + Product_Info_7)
 #fit1 <- ctree(fol1, train)
 #cat("ctree based on product info:\n")
 #fit1
 
-model1 <- rpart(fol1, method="anova", data=train)
-cat("\nDecision tree for product type:\n")
-model1
+#model1 <- rpart(fol1, method="class", data=train)
+#cat("\nDecision tree for product type:\n")
+#model1
+#cat("\nprint model1:\n")
+#print(model1)
 
 prod_rf = randomForest(fol1, train)
 cat("\nimportance of Product_Info fields:\n")
 importance(prod_rf)
 
-#fol2   <- formula(Response ~ Ins_Age, Ht, Wt, BMI)
+fol2 <- formula(Response ~ Ins_Age + Ht + Wt +  BMI)
 
-#cat("ctree based on age/weight:\n")
-#fit2 <- ctree(fol2, train)
-#fit2
-
-#model2 <- rpart(fol2, method="anova", data=train)
+#model2 <- rpart(fol2, method="class", data=train)
 #cat("\nDecision tree for age, weight:\n")
 #model2
 
-#cat("importance, age/wt:\n")
-#age_rf <- randomForest(fol2, train)
-#importance(age_rf)
+cat("importance, age/wt:\n")
+age_rf <- randomForest(fol2, train)
+importance(age_rf)
 
-#fol3 <- formula(Response ~ Employment_Info_1, Employment_Info_2, Employment_Info_3, Employment_Info_4,
-#                           Employment_Info_5, Employment_Info_6, Employment_Info_7)
-#emp_rf <- randomForest(fol3, train, na.action = na.omit)
-#cat("\nImportance of Employment_Info:\n")
-#importance(emp_rf)
+fol3 <- formula(Response ~ Employment_Info_1 + Employment_Info_2 + Employment_Info_3 + Employment_Info_4 +
+                           Employment_Info_5 + Employment_Info_6)
+emp_rf <- randomForest(fol3, train, na.action = na.omit)
+cat("\nImportance of Employment_Info:\n")
+importance(emp_rf)
 
-#fol4 <- formula(Response ~ InsuredInfo_1, InsuredInfo_2, InsuredInfo_3, InsuredInfo_4,
-#                           InsuredInfo_5, InsuredInfo_6, InsuredInfo_7)
-#ins_rf <- randomForest(fol4, train)
-#cat("\nImportance of InsuredInfo:\n")
-#importance(ins_rf)
+fol4 <- formula(Response ~ InsuredInfo_1 + InsuredInfo_2 + InsuredInfo_3 + InsuredInfo_4 +
+                           InsuredInfo_5 + InsuredInfo_6 +  InsuredInfo_7)
+ins_rf <- randomForest(fol4, train)
+cat("\nImportance of InsuredInfo:\n")
+importance(ins_rf)
+}
+fol5 <- formula(Response ~ Insurance_History_1 + Insurance_History_2 + Insurance_History_3 + Insurance_History_4 +
+                           Insurance_History_5 + Insurance_History_7 + Insurance_History_8 + Insurance_History_9)
+ins_hist_rf <- randomForest(fol5, train, na.action = na.omit)
+cat("\nImportance of Insurance_History:\n")
+importance(ins_hist_rf)
 
-#fol5 <- formula(Response ~ Insurance_History_1, Insurance_History_2, Insurance_History_3, Insurance_History_4,
-#                           Insurance_History_5, Insurance_History_6, Insurance_History_7, Insurance_History_8,
-#                           Insurance_History_9)
-#ins_hist_rf <- randomForest(fol5, train)
-#cat("\nImportance of Insurance_History:\n")
-#importance(ins_hist_rf)
+fol6 <- formula(Response ~ Family_Hist_1 + Family_Hist_2 + Family_Hist_3 + Family_Hist_4 +
+                           Family_Hist_5)
+fam_hist_rf <- randomForest(fol6, train)
+cat("\nImportance of Family_Hist:\n")
+importance(fam_hist_rf)
 
-#fol6 <- formula(Response ~ Family_Hist_1, Family_Hist_2, Family_Hist_3, Family_Hist_4,
-#                           Family_Hist_5)
-#fam_hist_rf <- randomForest(fol6, train)
-#cat("\nImportance of Family_Hist:\n")
-#importance(fam_hist_rf)
+fol7 <- formula(Response ~ Medical_History_1 + Medical_History_2 + Medical_History_3 + Medical_History_4 +
+                           Medical_History_5 + Medical_History_6 + Medical_History_7 + Medical_History_8 +
+                           Medical_History_9)
+med_hist_rf <- randomForest(fol7, train, na.action = na.omit)
+cat("\nImportance of Medical_History 1 - 9:\n")
+importance(med_hist_rf)
 
-#fol7 <- formula(Response ~ Medical_History_1, Medical_History_2, Medical_History_3, Medical_History_4,
-#                           Medical_History_5, Medical_History_6, Medical_History_7, Medical_History_8,
-#                           Medical_History_9)
-#med_hist_rf <- randomForest(fol7, train, na.action = na.omit)
-#cat("\nImportance of Medical_History 1 - 9:\n")
+fol8 <- formula(Response ~ Medical_History_10 + Medical_History_11 + Medical_History_12 + Medical_History_13 +
+                           Medical_History_14 + Medical_History_15 + Medical_History_16 + Medical_History_17 +
+                           Medical_History_18 + Medical_History_19)
+med_hist_rf <- randomForest(fol8, train, na.action = na.omit)
+cat("\nImportance of Medical_History 10 - 19:\n")
+importance(med_hist_rf)
+
+fol9 <- formula(Response ~ Medical_History_20 + Medical_History_21 + Medical_History_22 + Medical_History_23 +
+                           Medical_History_24 + Medical_History_25 + Medical_History_26 + Medical_History_27 +
+                           Medical_History_28 + Medical_History_29)
+med_hist_rf <- randomForest(fol9, train)
+cat("\nImportance of Medical_History 20 - 29:\n")
 #importance(med_hist_rf)
 
-#fol8 <- formula(Response ~ Medical_History_10, Medical_History_11, Medical_History_12, Medical_History_13,
-#                           Medical_History_14, Medical_History_15, Medical_History_16, Medical_History_17,
-#                           Medical_History_18, Medical_History_19)
-#med_hist_rf <- randomForest(fol8, train, na.action = na.omit)
-#cat("\nImportance of Medical_History 10 - 19:\n")
-#importance(med_hist_rf)
+fol10 <- formula(Response ~ Medical_History_30 + Medical_History_31 + Medical_History_32 + Medical_History_33 +
+                            Medical_History_34 + Medical_History_35 + Medical_History_36 + Medical_History_37 +
+                            Medical_History_38 + Medical_History_39 + Medical_History_40 + Medical_History_41)
+med_hist_rf <- randomForest(fol10, train)
+cat("\nImportance of Medical_History 30 - 41:\n")
+importance(med_hist_rf)
 
-#fol9 <- formula(Response ~ Medical_History_20, Medical_History_21, Medical_History_22, Medical_History_23,
-#                           Medical_History_24, Medical_History_25, Medical_History_26, Medical_History_27,
-#                           Medical_History_28, Medical_History_29)
-#med_hist_rf <- randomForest(fol9, train)
-#cat("\nImportance of Medical_History 20 - 29:\n")
-#importance(med_hist_rf)
+#fol <- formula(Response ~ Product_Info_2 +     Product_Info_3  Product_Info_4, Ins_Age,
+#                          Employment_Info_1,  Insured_Info_1, Family_Hist_1,  Medicat_History_1,
+#                          Medical_History_20, Medical_History_30)
 
-#fol10 <- formula(Response ~ Medical_History_30, Medical_History_31, Medical_History_32, Medical_History_33,
-#                            Medical_History_34, Medical_History_35, Medical_History_36, Medical_History_37,
-#                            Medical_History_38, Medical_History_39, Medical_History_40, Medical_History_41)
-#med_hist_rf <- randomForest(fol10, train)
-#cat("\nImportance of Medical_History 30 - 41:\n")
-#importance(med_hist_rf)
+#model <- rpart(fol, method="class", data=train)
+#cat("\nDecision tree for revised model:\n")
+#model
 
-fol <- formula(Response ~ Product_Info_2,     Product_Info_3, Product_Info_4, Ins_Age,
-                          Employment_Info_1,  Insured_Info_1, Family_Hist_1,  Medicat_History_1,
-                          Medical_History_20, Medical_History_30)
-
-model <- rpart(fol, method="anova", data=train)
-cat("\nDecision tree for revised model:\n")
-model
-
-rf <- randomForest(fol, train)
-cat("\nImportance in revised model\n")
-importance(rf)
+#rf <- randomForest(fol, train)
+#cat("\nImportance in revised model\n")
+#importance(rf)
