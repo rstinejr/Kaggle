@@ -242,26 +242,95 @@ The IncNodePUrity of a model with the above inputs is:
 	Medical_History_6        653.7544
 
 Again, there appears to be a big fall-off in IncNodePurity after 1000, so we reduce the 
-model to the following:
+model to the following, of which all appear to contribute significantly to error reduction:
 
+	Importance of reduced set of high-impact factors:
+						IncNodePurity
+	Product_Info_2           5283.072
+	Product_Info_4           3797.586
+	Ins_Age                  5596.023
+	Ht                       3181.296
+	Wt                       7139.026
+	BMI                     10487.495
+	Employment_Info_1        4307.644
+	Employment_Info_2        2763.658
+	Employment_Info_4        1560.891
+	Employment_Info_6        3448.129
+	Insurance_History_5      3827.292
+	Medical_History_1        3879.575
+	Medical_History_2        3710.799
+	Medical_History_4        2195.531
 
-	Product_Info_2
-	Product_Info_4
-	Ins_Age
-	Ht
-	Wt
-	BMI
-	Employment_Info_1
-	Employment_Info_2
-	Employment_Info_4
-	Employment_Info_6
-	Insurance_History_5
-	Medical_History_1
-	Medical_History_2
-	Medical_History_4
 
 PART 4: ANALYSIS OF INITIAL SOLUTION
 
+Using R funcion "rpart" to create a regression tree with the above model yielded a surprise: only 3 factors
+played a role:
+
+	Regression tree for model:
+	n= 29690 
+
+	node), split, n, deviance, yval
+		  * denotes terminal node
+
+	 1) root 29690 179341.50 5.635736  
+	   2) BMI>=0.5365671 7119  32206.88 4.203259  
+		 4) BMI>=0.7229444 1144   3154.49 2.720280 *
+		 5) BMI< 0.7229444 5975  26054.77 4.487197 *
+	   3) BMI< 0.5365671 22571 127919.00 6.087546  
+		 6) Medical_History_4=1 7278  41538.07 5.170239 *
+		 7) Medical_History_4=2 15293  77342.37 6.524096  
+		  14) Ins_Age>=0.5298507 4084  27419.13 5.657933 *
+		  15) Ins_Age< 0.5298507 11209  45742.91 6.839682 *
+
+This suggests that yet another factor pruning would be in order, 
+which would leave BMI, Medical_History_4, and Ins_Age
+
+
 PART 5: REVISED SOLUTION AND ANALYSIS
 
+In the revised solution the IncNodePurity value for all remaining factors is large.
+See below:
 
+	Importance of age, BMI, and Medical History 4:
+					  IncNodePurity
+	Ins_Age                6461.032
+	BMI                   20720.150
+	Medical_History_4      9279.348
+
+	Regression tree for model:
+	n= 29690 
+
+	node), split, n, deviance, yval
+		  * denotes terminal node
+
+	 1) root 29690 179341.50 5.635736  
+	   2) BMI>=0.5365671 7119  32206.88 4.203259  
+		 4) BMI>=0.7229444 1144   3154.49 2.720280 *
+		 5) BMI< 0.7229444 5975  26054.77 4.487197 *
+	   3) BMI< 0.5365671 22571 127919.00 6.087546  
+		 6) Medical_History_4=1 7278  41538.07 5.170239 *
+		 7) Medical_History_4=2 15293  77342.37 6.524096  
+		  14) Ins_Age>=0.5298507 4084  27419.13 5.657933 *
+		  15) Ins_Age< 0.5298507 11209  45742.91 6.839682 *
+
+Using R's "predict" function to evaluate performace, we see that the performance
+against the test set is comparable to the performance against the training set:
+
+	Prediction table from training data:
+					  true
+	pred                  1    2    3    4    5    6    7    8
+	  2.72027972027972  246  557   14    0  259   64    1    3
+	  4.48719665271966  832  910  188   43 1444 1806  649  103
+	  5.17023907666941  899  770  240  618  311 2141  795 1504
+	  5.6579333986288   550  467    6   11  274  625  767 1384
+	  6.83968239807298  550  638   21   56  411 1015 1736 6782
+
+	Prediction table from test data:
+					  true
+	pred                  1    2    3    4    5    6    7    8
+	  2.72027972027972  290  504   27    0  261   66    2    1
+	  4.48719665271966  795  893  227   31 1478 1852  733  133
+	  5.17023907666941  909  744  272  601  311 2080  836 1512
+	  5.6579333986288   549  472    1    5  282  613  789 1368
+	  6.83968239807298  587  597   17   63  401  971 1719 6699
