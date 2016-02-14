@@ -85,9 +85,6 @@ test      <- applicants[-trainInd,]
 cat("\nTraining set extracted, mean ID of training set: ", mean(train$Id), "\n")
 cat("                        mean ID of test set    : ",   mean(test$Id),  "\n")
 
-
-if (FALSE)
-{
 fol1 <- formula(Response ~ Product_Info_1 + Product_Info_2 + Product_Info_3 + Product_Info_4
                           + Product_Info_5 + Product_Info_6 + Product_Info_7)
 #fit1 <- ctree(fol1, train)
@@ -150,7 +147,6 @@ fol8 <- formula(Response ~ Medical_History_10 + Medical_History_11 + Medical_His
 med_hist_rf <- randomForest(fol8, train, na.action = na.omit)
 cat("\nImportance of Group 8, Medical_History 10 - 19:\n")
 importance(med_hist_rf)
-}
 
 fol9 <- formula(Response ~ Medical_History_20 + Medical_History_21 + Medical_History_22 + Medical_History_23 +
                            Medical_History_24 + Medical_History_25 + Medical_History_26 + Medical_History_27 +
