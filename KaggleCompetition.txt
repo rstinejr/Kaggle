@@ -135,3 +135,17 @@ new model will include the following input:
     Medical_History_20
     Medical_History_30
 
+Unexpectedly, running "rpart" again resulted in a degenerate decision tree (i.e., no branches, just pick 8).  The
+measure of importance from report forest only picked Product_info_2:
+
+    Decision tree for revised model:
+    n= 29690 
+
+    node), split, n, loss, yval, (yprob)
+          * denotes terminal node
+
+    1) root 29690 19914 8 (0.1 0.11 0.016 0.025 0.091 0.19 0.13 0.33) *
+
+    Importance in revised model
+                   IncNodePurity
+    Product_Info_2      12495.77
