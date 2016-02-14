@@ -174,14 +174,41 @@ fol <- formula(Response ~ Product_Info_2 + Product_Info_3 + Product_Info_4 + Ins
 rf <- randomForest(fol, train, na.action = na.omit)
 cat("\nImportance of high-impact factors:\n")
 importance(rf)
-}
+
 
 fol <- formula(Response ~ Product_Info_2 + Product_Info_4 + Ins_Age + Ht +
 	                      Wt + BMI + Employment_Info_1 + Employment_Info_2 + 
 	                      Employment_Info_4 + Employment_Info_6 +
 	                      Insurance_History_5 + Medical_History_1 + 
                           Medical_History_2 + Medical_History_4)
-rf <- randomForest(fol, train, na.action = na.omit)
-cat("\nImportance of reduced set of high-impact factors:\n")
+#rf <- randomForest(fol, train, na.action = na.omit)
+#cat("\nImportance of reduced set of high-impact factors:\n")
+#importance(rf)
+}
+
+fol <- formula(Response ~ Ins_Age + BMI + Medical_History_4)
+rf <- randomForest(fol, train)
+cat("\nImportance of age, BMI, and Medical History 4:\n")
 importance(rf)
+model <- rpart(fol, method="anova", data=train)
+
+cat("\nRegression tree for model:\n")
+model
+
+cat("\nRegression tree characteristics:\n")
+summary(model)
+
+# Response is column 128.
+
+self_pred <- predict(model, train[,-128])
+self_tab  <- table(pred=self_pred, true = train[,128])
+
+cat("\nPrediction table from training data:\n")
+self_tab
+
+pred <- predict(model,   test[,-128])
+tab  <- table(pred=pred, true = test[,128])
+
+cat("\nPrediction table from training data:\n")
+tab
 
