@@ -37,7 +37,6 @@ applicants$Insurance_History_9 <- as.factor(applicants$Insurance_History_9)
 
 applicants$Family_Hist_1 <- as.factor(applicants$Family_Hist_1)
 
-applicants$Medical_History_2 <- as.factor(applicants$Medical_History_2)
 applicants$Medical_History_3 <- as.factor(applicants$Medical_History_3)
 applicants$Medical_History_4 <- as.factor(applicants$Medical_History_4)
 applicants$Medical_History_5 <- as.factor(applicants$Medical_History_5)
@@ -126,7 +125,7 @@ fol4 <- formula(Response ~ InsuredInfo_1 + InsuredInfo_2 + InsuredInfo_3 + Insur
 ins_rf <- randomForest(fol4, train)
 cat("\nImportance of InsuredInfo:\n")
 importance(ins_rf)
-}
+
 fol5 <- formula(Response ~ Insurance_History_1 + Insurance_History_2 + Insurance_History_3 + Insurance_History_4 +
                            Insurance_History_5 + Insurance_History_7 + Insurance_History_8 + Insurance_History_9)
 ins_hist_rf <- randomForest(fol5, train, na.action = na.omit)
@@ -137,6 +136,7 @@ fol6 <- formula(Response ~ Family_Hist_1 + Family_Hist_2 + Family_Hist_4)
 ins_hist_rf <- randomForest(fol6, train, na.action = na.omit)
 cat("\nImportance of Family_Hist:\n")
 importance(ins_hist_rf)
+}
 
 fol7 <- formula(Response ~ Medical_History_1 + Medical_History_2 + Medical_History_3 + Medical_History_4 +
                            Medical_History_5 + Medical_History_6 + Medical_History_7 + Medical_History_8 +
