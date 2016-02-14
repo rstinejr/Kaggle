@@ -110,6 +110,28 @@ The results were as follows:
                         IncNodePurity
     Medical_History_20      1062.272
 
+    Importance of Medical_History 30 - 41:
+                       IncNodePurity
+    Medical_History_30      2304.564
 
 There are misssing values in Group 3, Employment Info, and Group 7, Medical_History 1 - 9. Since
 randomForest cannot handle missing values in the predictor attribues, I elected to omit these values.
+
+
+PART 5: REVISED SOLUTION AND ANALYSIS
+
+Of the parameters rated "important, there appears to be a natrual break between those with values a
+value over 1000 and those that are not rated or are rated less than 1000.  With this critereon, our
+new model will include the following input:
+
+    Product_Info_2
+    Product_Info_3
+    Product_Info_4
+    Ins_Age
+    Employment_Info_1
+    InsuredInfo_1
+    Family_Hist_1
+    Medical_History_1
+    Medical_History_20
+    Medical_History_30
+
