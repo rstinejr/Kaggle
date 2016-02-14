@@ -31,6 +31,18 @@ After selecting and preparing the fields to use as input, use R to:
 
 PART 3: INITIAL SOLUTION
 
+The first job was to identify the factors with high predictive power.  To do this, I used the R "randomForest" function
+to model batches of factors, and then applied the "importance" function to the model.  E.g.,
+
+    fol <- formula(Response ~ Product_Info_1 + Product_Info_2 + Product_Info_3 + Product_Info_4
+                            + Product_Info_5 + Product_Info_6 + Product_Info_7)
+    prod_rf = randomForest(fol1, train)
+    cat("\nimportance of Product_Info fields:\n")
+    importance(prod_rf)
+
+Results were as follows:
+ 
+
 Before analysis, as a sanity checkon the partition between training and test data, I computed the mean of record ID, which in
 the file is a strictly increasing integer.  The mean is close to equal in the two subsets:
 
@@ -47,17 +59,12 @@ The insurance products are in 7 different categories, ProductInfo_1 - 7.  All bu
 so I redefined them "as.factor" before building the model.  The R function "rpart" generated a decision tree based only
 on ProductInfo_4, with one branch selecting Response 5, the other selecting Response 8. 
 
-But when I applied a random tree, it appear
-
 Group 2: Body Attributes
 
-This group contains the attributes Age, height, weight, BMI.  The R function "rpart" generated a one-node
-decision tree: always pick Response 8.
+This group contains the attributes Age, height, weight, BMI.
 
 PART 4: ANALYSIS OF INITIAL SOLUTION
 
-In the initial work with R's classification tree generator, "rpart", I generated several degenerate trees: a constant choice
-to pick Response 8. In other words, the tree had no branches.
 
 This effect is probably because within the 8 result categories, the distribution is very uneven - the majority 
 are category 8.  Several of the nominal fields also have a preponderance of a particular value, rather than an
@@ -114,8 +121,9 @@ The results were as follows:
                        IncNodePurity
     Medical_History_30      2304.564
 
-There are misssing values in Group 3, Employment Info, and Group 7, Medical_History 1 - 9. Since
-randomForest cannot handle missing values in the predictor attribues, I elected to omit these values.
+There are misssing values in Group 3, Employment Info, Group 5, Insurance History, Group 6, Family
+History 1 - 5, and Group 7, Medical_History 1 - 9. 
+Since randomForest cannot handle missing values in the predictor attribues, I elected to omit these values.
 
 
 PART 5: REVISED SOLUTION AND ANALYSIS
