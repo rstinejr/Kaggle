@@ -161,9 +161,21 @@ cat("                        mean ID of test set    : ",   mean(test$Id),  "\n")
 #cat("\nImportance of Medical_History 20 - 29:\n")
 #importance(med_hist_rf)
 
-fol10 <- formula(Response ~ Medical_History_30, Medical_History_31, Medical_History_32, Medical_History_33,
-                            Medical_History_34, Medical_History_35, Medical_History_36, Medical_History_37,
-                            Medical_History_38, Medical_History_39, Medical_History_40, Medical_History_41)
-med_hist_rf <- randomForest(fol10, train)
-cat("\nImportance of Medical_History 30 - 41:\n")
-importance(med_hist_rf)
+#fol10 <- formula(Response ~ Medical_History_30, Medical_History_31, Medical_History_32, Medical_History_33,
+#                            Medical_History_34, Medical_History_35, Medical_History_36, Medical_History_37,
+#                            Medical_History_38, Medical_History_39, Medical_History_40, Medical_History_41)
+#med_hist_rf <- randomForest(fol10, train)
+#cat("\nImportance of Medical_History 30 - 41:\n")
+#importance(med_hist_rf)
+
+fol <- formula(Response ~ Product_Info_2,     Product_Info_3, Product_Info_4, Ins_Age,
+                          Employment_Info_1,  Insured_Info_1, Family_Hist_1,  Medicat_History_1,
+                          Medical_History_20, Medical_History_30)
+
+model <- rpart(fol, method="class", data=train)
+cat("\nDecision tree for revised model:\n")
+model
+
+rf <- randomForest(fol, train)
+cat("\nImportance in revised model\n")
+importance(rf)
