@@ -86,17 +86,23 @@ The results were as follows:
     Product_Info_7      225.4159
 
 
+DATA CLEAN-UP NOTES:
+
 There are misssing values in Group 3, Employment Info, Group 5, Insurance History 1- 7, Group 6,
-Family History 1 - 5, and Group 7, Medical_History 1 - 9. 
+Family History 1 - 5, Group 7, Medical History 1 - 9, Group 9, Medical History 20 - 29, and 
+Group 10, Medical History 30 - 41.  Since randomForest cannot handle missing values in the
+predictor attribues, I elected to omit these values.
 
-Since randomForest cannot handle missing values in the predictor attribues, I elected to omit these values.
-
-When I attempted to create a random forest for the Family History attributes, R  generated the following error:
+Another issue I encountered was that when I attempted to create a random forest for the Family
+History attributes, R  generated the following error:
 
     The response has five or fewer unique values.  Are you sure you want to do regression?
     Execution halted
 
 To work around this issue, I removed factor Family_Hist_3 and Family_Hist 5 from the model.
+
+The problem description sahs that Medical_History_2 is a nominal value. It has, however, 579 distinct values.
+As a result, the randomTree function would not accept it when declared "as.factor".
 
 PART 5: REVISED SOLUTION AND ANALYSIS
 
