@@ -184,73 +184,84 @@ values. As a result, the randomTree function would not accept it when declared "
 
 FACTORS FOR MODEL
 
-PART 4: ANALYSIS OF INITIAL SOLUTION
-
 Examining the IncNodePurity values by eye, there appears to be a natural break at 900, which
 gives us the following attributes:
 
-	Product_Info_2    10558.5313
-	Product_Info_3     2302.8496
-	Product_Info_4    10290.4014
-	Ins_Age      23058.66
-	Ht            8458.03
-	Wt           24801.23
-	BMI          29424.46
-	Employment_Info_1      6260.453
-	Employment_Info_2      2958.396
-	Employment_Info_3       988.157
-	Employment_Info_4      3207.965
-	Employment_Info_5      1219.497
-	Employment_Info_6      4699.130
-	InsuredInfo_1     934.68628
-	InsuredInfo_5    1125.44147
-	InsuredInfo_6    2665.51316
-	InsuredInfo_7     947.13608
-	Insurance_History_2    1198.24286
-	Insurance_History_5    1927.89421
-	Medical_History_1     7463.0620
-	Medical_History_2     7479.6934
-	Medical_History_4     7988.8806
-	Medical_History_6     3331.1185
+	Attribute           IncNodePurity 
+    ---------           -------------
+	Product_Info_2      10558.5313
+	Product_Info_3       2302.8496
+	Product_Info_4      10290.4014
+	Ins_Age             23058.66
+	Ht                   8458.03
+	Wt                  24801.23
+	BMI                 29424.46
+	Employment_Info_1    6260.453
+	Employment_Info_2    2958.396
+	Employment_Info_3     988.157
+	Employment_Info_4    3207.965
+	Employment_Info_5    1219.497
+	Employment_Info_6    4699.130
+	InsuredInfo_1         934.68628
+	InsuredInfo_5        1125.44147
+	InsuredInfo_6        2665.51316
+	InsuredInfo_7         947.13608
+	Insurance_History_2  1198.24286
+	Insurance_History_5  1927.89421
+	Medical_History_1    7463.0620
+	Medical_History_2    7479.6934
+	Medical_History_4    7988.8806
+	Medical_History_6    3331.1185
 
+The IncNodePUrity of a model with the above inputs is:
+
+	Importance of high-impact factors:
+						IncNodePurity
+	Product_Info_2          5135.2892
+	Product_Info_3           467.1862
+	Product_Info_4          3577.0040
+	Ins_Age                 5391.0110
+	Ht                      2871.4668
+	Wt                      6754.0585
+	BMI                    10182.5628
+	Employment_Info_1       3963.6542
+	Employment_Info_2       2480.6412
+	Employment_Info_3        316.5980
+	Employment_Info_4       1461.5074
+	Employment_Info_5        227.9790
+	Employment_Info_6       3195.4737
+	InsuredInfo_1            543.0781
+	InsuredInfo_5            125.6827
+	InsuredInfo_6            573.5616
+	InsuredInfo_7            183.3555
+	Insurance_History_2      557.5082
+	Insurance_History_5     3564.3698
+	Medical_History_1       3611.7122
+	Medical_History_2       3422.6708
+	Medical_History_4       2195.6901
+	Medical_History_6        653.7544
+
+Again, there appears to be a big fall-off in IncNodePurity after 1000, so we reduce the 
+model to the following:
+
+
+	Product_Info_2
+	Product_Info_4
+	Ins_Age
+	Ht
+	Wt
+	BMI
+	Employment_Info_1
+	Employment_Info_2
+	Employment_Info_4
+	Employment_Info_6
+	Insurance_History_5
+	Medical_History_1
+	Medical_History_2
+	Medical_History_4
+
+PART 4: ANALYSIS OF INITIAL SOLUTION
 
 PART 5: REVISED SOLUTION AND ANALYSIS
-
-Of the parameters rated "important, there appears to be a natrual break between those with values a
-value over 1000 and those that are not rated or are rated less than 1000.  With this critereon, our
-new model will include the following input:
-
-    Product_Info_2
-    Product_Info_3
-    Product_Info_4
-    Ins_Age
-    Employment_Info_1
-    InsuredInfo_1
-    Family_Hist_1
-    Medical_History_1
-    Medical_History_20
-    Medical_History_30
-
-Unexpectedly, running "rpart" again resulted in a degenerate decision tree (i.e., no branches, just pick 8).  The
-measure of importance from report forest only picked Product_info_2:
-
-    Decision tree for revised model:
-    n= 29690 
-
-    node), split, n, loss, yval, (yprob)
-          * denotes terminal node
-
-    1) root 29690 19914 8 (0.1 0.11 0.016 0.025 0.091 0.19 0.13 0.33) *
-
-    Importance in revised model
-                   IncNodePurity
-    Product_Info_2      12495.77
-
-FURTHER ANALYSIS
-
-Perhaps the results are defuse because I have treated "risk" categories as unrelated, when in fact they are an
-ordinal relation, from highest risk (1) to lowest (8).  In an attempt to get some predictive power from the
-data, I reran the "rpart" function as a regression, rather than a classification.  The training results were
-as follows:
 
 

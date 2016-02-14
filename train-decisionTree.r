@@ -85,6 +85,8 @@ test      <- applicants[-trainInd,]
 cat("\nTraining set extracted, mean ID of training set: ", mean(train$Id), "\n")
 cat("                        mean ID of test set    : ",   mean(test$Id),  "\n")
 
+if (FALSE)
+{
 fol1 <- formula(Response ~ Product_Info_1 + Product_Info_2 + Product_Info_3 + Product_Info_4
                           + Product_Info_5 + Product_Info_6 + Product_Info_7)
 #fit1 <- ctree(fol1, train)
@@ -161,15 +163,15 @@ fol10 <- formula(Response ~ Medical_History_30 + Medical_History_31 + Medical_Hi
 med_hist_rf <- randomForest(fol10, train, na.action = na.omit)
 cat("\nImportance of Group 10, Medical_History 30 - 41:\n")
 importance(med_hist_rf)
+}
 
-#fol <- formula(Response ~ Product_Info_2 +     Product_Info_3  Product_Info_4, Ins_Age,
-#                          Employment_Info_1,  Insured_Info_1, Family_Hist_1,  Medicat_History_1,
-#                          Medical_History_20, Medical_History_30)
+fol <- formula(Response ~ Product_Info_2 + Product_Info_3 + Product_Info_4 + Ins_Age + Ht +
+	                      Wt + BMI + Employment_Info_1 + Employment_Info_2 + Employment_Info_3 +
+	                      Employment_Info_4 + Employment_Info_5 + Employment_Info_6 +
+	                      InsuredInfo_1 + InsuredInfo_5 + InsuredInfo_6 + InsuredInfo_7 + Insurance_History_2 +
+	                      Insurance_History_5 + Medical_History_1 + Medical_History_2 + Medical_History_4 +
+	                      Medical_History_6)
 
-#model <- rpart(fol, method="class", data=train)
-#cat("\nDecision tree for revised model:\n")
-#model
-
-#rf <- randomForest(fol, train)
-#cat("\nImportance in revised model\n")
-#importance(rf)
+rf <- randomForest(fol, train, na.action = na.omit)
+cat("\nImportance of high-impact factors:\n")
+importance(rf)
