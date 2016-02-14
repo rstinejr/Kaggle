@@ -85,46 +85,18 @@ The results were as follows:
     Product_Info_6      376.6041
     Product_Info_7      225.4159
 
-    Importance, Group 2, age/wt:
-            IncNodePurity
-    Ins_Age      9011.543
 
-     Importance of Group 3, Employment_Info:
-                      IncNodePurity
-    Employment_Info_1      10498.11
+There are misssing values in Group 3, Employment Info, Group 5, Insurance History 1- 7, Group 6,
+Family History 1 - 5, and Group 7, Medical_History 1 - 9. 
 
-    Importance of Group 4, InsuredInfo:
-                  IncNodePurity
-    InsuredInfo_1      1338.307
-
-    Importance of Group 5, Insurance_History:
-                        IncNodePurity
-    Insurance_History_1       6.69848
-
-    Importance of Group 6, Family_Hist:
-                  IncNodePurity
-    Family_Hist_1       894.984
-
-    Importance of Group 7, Medical_History 1 - 9:
-                      IncNodePurity
-    Medical_History_1      5583.196
-
-    Importance of Group 8, Medical_History 10 - 19:
-                       IncNodePurity
-    Medical_History_10      399.3494
-
-    Importance of Group 9, Medical_History 20 - 29:
-                        IncNodePurity
-    Medical_History_20      1062.272
-
-    Importance of Medical_History 30 - 41:
-                       IncNodePurity
-    Medical_History_30      2304.564
-
-There are misssing values in Group 3, Employment Info, Group 5, Insurance History, Group 6, Family
-History 1 - 5, and Group 7, Medical_History 1 - 9. 
 Since randomForest cannot handle missing values in the predictor attribues, I elected to omit these values.
 
+When I attempted to create a random forest for the Family History attributes, R  generated the following error:
+
+    The response has five or fewer unique values.  Are you sure you want to do regression?
+    Execution halted
+
+To work around this issue, I removed factor Family_Hist_3 and Family_Hist 5 from the model.
 
 PART 5: REVISED SOLUTION AND ANALYSIS
 

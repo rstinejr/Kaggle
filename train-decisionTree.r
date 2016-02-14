@@ -133,11 +133,10 @@ ins_hist_rf <- randomForest(fol5, train, na.action = na.omit)
 cat("\nImportance of Insurance_History:\n")
 importance(ins_hist_rf)
 
-fol6 <- formula(Response ~ Family_Hist_1 + Family_Hist_2 + Family_Hist_3 + Family_Hist_4 +
-                           Family_Hist_5)
-fam_hist_rf <- randomForest(fol6, train)
+fol6 <- formula(Response ~ Family_Hist_1 + Family_Hist_2 + Family_Hist_4)
+ins_hist_rf <- randomForest(fol6, train, na.action = na.omit)
 cat("\nImportance of Family_Hist:\n")
-importance(fam_hist_rf)
+importance(ins_hist_rf)
 
 fol7 <- formula(Response ~ Medical_History_1 + Medical_History_2 + Medical_History_3 + Medical_History_4 +
                            Medical_History_5 + Medical_History_6 + Medical_History_7 + Medical_History_8 +
