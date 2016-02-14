@@ -31,7 +31,14 @@ After selecting and preparing the fields to use as input, use R to:
 
 PART 3: INITIAL SOLUTION
 
-The first job was to identify the factors with high predictive power.  To do this, I used the R "randomForest" function
+Before analysis, as a sanity checkon the partition between training and test data, I computed the mean of record ID, which in
+the file is a strictly increasing integer.  The mean is close to equal in the two subsets:
+
+    Training set extracted, mean ID of training set:  39605.79 
+                            mean ID of test set    :  39408.64 
+ 
+A decision tree with all columns would be intractible, so the first job was to identify the factors with high
+predictive power.  To do this, I used the R "randomForest" function
 to model batches of factors, and then applied the "importance" function to the model.  E.g.,
 
     fol <- formula(Response ~ Product_Info_1 + Product_Info_2 + Product_Info_3 + Product_Info_4
@@ -40,51 +47,121 @@ to model batches of factors, and then applied the "importance" function to the m
     cat("\nimportance of Product_Info fields:\n")
     importance(prod_rf)
 
-Results were as follows:
- 
+"Importance" is IncNodePurity, which according to this web article, 
+jhttp://stats.stackexchange.com/questions/162465/in-a-random-forest-is-larger-incmse-better-or-worse
 
-Before analysis, as a sanity checkon the partition between training and test data, I computed the mean of record ID, which in
-the file is a strictly increasing integer.  The mean is close to equal in the two subsets:
+    "...relates to the loss function which by best splits are chosen. The loss function is mse for
+     regression and gini-impurity for classification. More useful variables achieve higher increases in
+     node purities, that is to find a split which has a high inter node 'variance' and a small intra node
+     'variance'."
 
-    Training set extracted, mean ID of training set:  39605.79 
-                            mean ID of test set    :  39408.64 
- 
-A decision tree with all columns would be intractible.  I decided by pick factors by running initial models with 
-only certain categories of factors, to see whether they could create a decision tree that identified risk.
+Results for the 10 groups of attributes were as follows:
 
+	Importance of Group 1, Product_Info:
+				   IncNodePurity
+	Product_Info_1      196.1271
+	Product_Info_2    10558.5313
+	Product_Info_3     2302.8496
+	Product_Info_4    10290.4014
+	Product_Info_5      134.1557
+	Product_Info_6      376.6041
+	Product_Info_7      225.4159
 
-Group 1: Product ID.  
+	Importance, Group 2, age/wt/BMI:
+			IncNodePurity
+	Ins_Age      23058.66
+	Ht            8458.03
+	Wt           24801.23
+	BMI          29424.46
 
-The insurance products are in 7 different categories, ProductInfo_1 - 7.  All but ProductInfo_4 are discrete, nominal values,
-so I redefined them "as.factor" before building the model.  The R function "rpart" generated a decision tree based only
-on ProductInfo_4, with one branch selecting Response 5, the other selecting Response 8. 
+	Importance of Group 3, Employment_Info:
+					  IncNodePurity
+	Employment_Info_1      6260.453
+	Employment_Info_2      2958.396
+	Employment_Info_3       988.157
+	Employment_Info_4      3207.965
+	Employment_Info_5      1219.497
+	Employment_Info_6      4699.130
 
-Group 2: Body Attributes
+	Importance of Group 4, InsuredInfo:
+				  IncNodePurity
+	InsuredInfo_1     934.68628
+	InsuredInfo_2     488.69328
+	InsuredInfo_3     556.43612
+	InsuredInfo_4      75.88892
+	InsuredInfo_5    1125.44147
+	InsuredInfo_6    2665.51316
+	InsuredInfo_7     947.13608
 
-This group contains the attributes Age, height, weight, BMI.
+	Importance of Group 5, Insurance_History:
+						IncNodePurity
+	Insurance_History_1      99.29961
+	Insurance_History_2    1198.24286
+	Insurance_History_3       0.00000
+	Insurance_History_4     232.20398
+	Insurance_History_5    1927.89421
+	Insurance_History_7     173.63743
+	Insurance_History_8     135.81395
+	Insurance_History_9      74.96934
 
-PART 4: ANALYSIS OF INITIAL SOLUTION
+	Importance of Group 6, Family_Hist:
+				  IncNodePurity
+	Family_Hist_1      166.7946
+	Family_Hist_2      525.9247
+	Family_Hist_4      538.8467
 
+	Importance of Group 7, Medical_History 1 - 9:
+					  IncNodePurity
+	Medical_History_1     7463.0620
+	Medical_History_2     7479.6934
+	Medical_History_3      814.3148
+	Medical_History_4     7988.8806
+	Medical_History_5      780.8322
+	Medical_History_6     3331.1185
+	Medical_History_7     1165.5608
+	Medical_History_8     1216.0896
+	Medical_History_9     1035.9542
 
-This effect is probably because within the 8 result categories, the distribution is very uneven - the majority 
-are category 8.  Several of the nominal fields also have a preponderance of a particular value, rather than an
-even distribution.
+	Importance of Group 8, Medical_History 10 - 19:
+					   IncNodePurity
+	Medical_History_10     69.087630
+	Medical_History_11      5.663649
+	Medical_History_12     25.558728
+	Medical_History_13     28.622411
+	Medical_History_14     56.268941
+	Medical_History_15    126.413603
+	Medical_History_16     18.455467
+	Medical_History_17     16.133904
+	Medical_History_18     26.935298
+	Medical_History_19      8.193505
 
-In response, I adopted an alternative method: identify candidate factors by generating a random forest and then applying the 
-"importance" function to it.
+	Importance of Group 9, Medical_History 20 - 29:
+					   IncNodePurity
+	Medical_History_20      33.00462
+	Medical_History_21      85.20223
+	Medical_History_22      64.71012
+	Medical_History_23     606.13865
+	Medical_History_24     716.35800
+	Medical_History_25      74.45694
+	Medical_History_26      58.70741
+	Medical_History_27      38.92482
+	Medical_History_28     217.35366
+	Medical_History_29     117.91429
 
-The results were as follows:
-
-    Importance of Group 1, Product_Info fields:
-                   IncNodePurity
-    Product_Info_1      196.1271
-    Product_Info_2    10558.5313
-    Product_Info_3     2302.8496
-    Product_Info_4    10290.4014
-    Product_Info_5      134.1557
-    Product_Info_6      376.6041
-    Product_Info_7      225.4159
-
+	Importance of Group 10, Medical_History 30 - 41:
+					   IncNodePurity
+	Medical_History_30      27.28178
+	Medical_History_31      67.73177
+	Medical_History_32     243.94111
+	Medical_History_33      28.87121
+	Medical_History_34      37.99684
+	Medical_History_35      10.85989
+	Medical_History_36      47.72478
+	Medical_History_37      20.26102
+	Medical_History_38      18.88860
+	Medical_History_39      94.17750
+	Medical_History_40     163.84813
+	Medical_History_41      32.03202
 
 DATA CLEAN-UP NOTES:
 
@@ -101,8 +178,41 @@ History attributes, R  generated the following error:
 
 To work around this issue, I removed factor Family_Hist_3 and Family_Hist 5 from the model.
 
-The problem description sahs that Medical_History_2 is a nominal value. It has, however, 579 distinct values.
-As a result, the randomTree function would not accept it when declared "as.factor".
+The problem description sahs that Medical_History_2 is a nominal value. It has, however, 579 distinct
+values. As a result, the randomTree function would not accept it when declared "as.factor".
+
+
+FACTORS FOR MODEL
+
+PART 4: ANALYSIS OF INITIAL SOLUTION
+
+Examining the IncNodePurity values by eye, there appears to be a natural break at 900, which
+gives us the following attributes:
+
+	Product_Info_2    10558.5313
+	Product_Info_3     2302.8496
+	Product_Info_4    10290.4014
+	Ins_Age      23058.66
+	Ht            8458.03
+	Wt           24801.23
+	BMI          29424.46
+	Employment_Info_1      6260.453
+	Employment_Info_2      2958.396
+	Employment_Info_3       988.157
+	Employment_Info_4      3207.965
+	Employment_Info_5      1219.497
+	Employment_Info_6      4699.130
+	InsuredInfo_1     934.68628
+	InsuredInfo_5    1125.44147
+	InsuredInfo_6    2665.51316
+	InsuredInfo_7     947.13608
+	Insurance_History_2    1198.24286
+	Insurance_History_5    1927.89421
+	Medical_History_1     7463.0620
+	Medical_History_2     7479.6934
+	Medical_History_4     7988.8806
+	Medical_History_6     3331.1185
+
 
 PART 5: REVISED SOLUTION AND ANALYSIS
 
